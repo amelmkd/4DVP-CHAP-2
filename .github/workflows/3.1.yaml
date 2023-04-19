@@ -1,0 +1,20 @@
+name: WorkFlow 3.1
+on:
+workflow_dispatch:
+inputs:
+username:
+description: "Nom d'utilisateur"
+required:
+true level:
+description: "Niveau"
+required:
+true class:
+description: "Classe de personnage"
+required:
+true options: ["jedi", "sith", "rebel"]
+type: choice
+  jobs:
+  player_infos:
+runs-on: windows-latest steps:
+  - name: Afficher les informations sur le joueur
+    run: echo "Le joueur ${{ github.event.inputs.username }} est de niveau ${{ github.event.inputs.level }} et joue un ${{ github.event.inputs.class }}."
