@@ -4,7 +4,7 @@ push:
 jobs:
 checkout:
 name: checkout
-runs-on: ubuntu-lastest #a définir à l'échelle du job
+runs-on: ubuntu-latest #a définir à l'échelle du job
 steps:
 - uses: actions/checkout@v3
 - run: cat README.md
