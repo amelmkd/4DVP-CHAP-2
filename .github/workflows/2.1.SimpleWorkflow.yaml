@@ -1,0 +1,13 @@
+name: 2.1.Simple_workflow.yaml
+
+on:
+  push:
+    #branches:
+     # - main
+
+jobs:
+  say_hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say Hello, world!
+        run: echo "Hello, world!"
