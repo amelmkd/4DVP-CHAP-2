@@ -1,0 +1,22 @@
+name: workflow-push
+
+on:
+  push:
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step 1
+        run: echo "Ceci est le premier job."
+
+  second_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step 1
+        run: echo "Ceci est le second job."
+
+  third_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step 1
+        run: echo "Ceci est le troisième job."
