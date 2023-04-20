@@ -1,0 +1,23 @@
+name: "Prepare Tests"
+on :
+  push:
+jobs:
+  prepare-tests :
+    runs-on: ubuntu-latest
+    outputs:
+      HOST : ${{steps.setup_host.outputs.HOST }}
+      DATABASE : $ {{steps.setup_host.outputs.DATABASE }}
+    steps:
+      - name :  "setup_host"
+        id : setup_host
+        run: |
+          echo "HOST=srv1" >> $ GITHUB_OUTPUT
+          echo "DATABASE=prep002" >> $ GITHUB_OUTPUT
+  diplay-infos :
+    needs : prepare-tests
+    runs-on : ubuntu-latest
+    steps:
+      - name : "echo host and database"
+        run: |
+          echo " HOST =${{ needs.prepare-tests.outputs.HOST}}"
+          echo " DATABASE =${{ needs.prepare-tests.outputs.DATABASE}}"

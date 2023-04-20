@@ -1,0 +1,30 @@
+name: "Test and Report"
+on:
+  push:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout repository"
+        uses: actions/checkout@v3
+        with:
+          ref: '3.1.0'
+          repository: tldr-pages/tldr-python-client
+      - name: "Setup Python"
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
+
+      - name: "Install dependencies"
+        run: pip install -r requirements.txt
+      - name: "Install pytest"
+        run: |
+          pip install pytest pytest-html
+      - name: "Run tests and generate report"
+        run: |
+          pytest --html=report.html || true
+      - name: "Upload report"
+        uses: actions/upload-artifact@v3
+        with:
+          name: "Test-Report"
+          path: report.html
