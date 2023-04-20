@@ -1,0 +1,12 @@
+name : "display env"
+on :
+  push:
+env:
+  MESSAGE : "ceci  est un variable d'environement"
+jobs :
+  env_print:
+    runs-on: ubuntu-latest
+    steps:
+      - name : " affiche v env"
+        run : |
+          echo "${{env.MESSAGE}}"

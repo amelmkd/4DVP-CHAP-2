@@ -1,0 +1,22 @@
+name: Using Matrice Workflow
+
+ 
+
+on:
+  push:
+
+
+
+jobs:
+  version_python:
+    runs-on: ubuntu-latest
+      strategy:
+      matrix:
+        version: ["3.8", "3.9", "3.10"]
+    steps:
+    - name: Setup Python Version ${{ matrix.version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.version }}
+    - name: Display Python version
+        run: python --version

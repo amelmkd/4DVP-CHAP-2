@@ -1,0 +1,14 @@
+name: Mon workflow
+
+
+on:
+  push:
+    branches: [ main ]
+
+
+jobs:
+  confidential_data:
+    runs-on: ubuntu-latest
+    steps:
+       - name: Afficher la valeur du secret
+          run: echo "La valeur de SUPER_SECRET est ${{ secrets.SUPER_SECRET }}"
