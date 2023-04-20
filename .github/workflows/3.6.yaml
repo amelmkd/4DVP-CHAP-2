@@ -1,0 +1,29 @@
+name: "3.6-test-workflow"
+
+on:
+        push:
+
+jobs:
+        testing_phase:
+                name: "Running test"
+                runs-on: "ubuntu:latest"
+
+                steps:
+                  - uses: actions/checkout@v3
+                        with:
+                            repository: https://github.com/tldr-pages/tldr-python-client
+                                ref: "3.1.0"
+                  - uses: actions/setup-python@v3
+                        with:
+                          python-version: "3.10"
+                      - name: "Installing dependencies"
+                        run: |
+                                pip install -r requirements.txt
+
+                        - name: "Installing pytest"
+                          run: |
+                                  pip install pytest
+
+                        - name: "Running tests"
+                          run: |
+                                   pytest
