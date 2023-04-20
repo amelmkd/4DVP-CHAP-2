@@ -1,0 +1,16 @@
+name: information_workflow
+
+on:
+  push:
+
+
+jobs:
+  information_display:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Display Notice message
+      run: echo "::notice::Ceci est une notice."
+    - name: Display Warning message
+      run: echo "::warning::Ceci est un avertissement."
+    - name: Display Error message
+      run: echo "::error::Une erreur est survenue."
